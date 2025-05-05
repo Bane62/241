@@ -1,0 +1,1075 @@
+\% Batch 1: Problems 8.1--8.5
+\section*{Problem 8.1}
+\textbf{Statement:} A plane wave in air with an electric field amplitude of $20\,$V/m is incident normally upon the surface of a lossless, nonmagnetic medium with $\varepsilon_r = 25$. Determine:
+\begin{enumerate}
+  \item The reflection coefficient $\Gamma$ and transmission coefficient $\tau$.
+  \item The standing-wave ratio $S$ in the air medium.
+  \item The time-average power densities $S_{i,\mathrm{av}}$, $S_{r,\mathrm{av}}$, and $S_{t,\mathrm{av}}$.
+\end{enumerate}
+
+\subsection*{Solution}
+\paragraph{1. Intrinsic impedances}
+The intrinsic impedance of air (medium 1) is
+\[
+\eta_1 = \eta_0 = 377\ \Omega.
+\]
+The intrinsic impedance of the dielectric (medium 2) is
+\[
+\eta_2 = \frac{\eta_0}{\sqrt{\varepsilon_r}}
+       = \frac{377}{\sqrt{25}}
+       = 75.4\ \Omega.
+\]
+
+\paragraph{2. Reflection and transmission coefficients}
+The reflection coefficient at normal incidence is
+\[
+\Gamma = \frac{\eta_2 - \eta_1}{\eta_2 + \eta_1}
+       = \frac{75.4 - 377}{75.4 + 377}
+       = \frac{-301.6}{452.4}
+       \approx -0.667.
+\]
+The transmission coefficient (field amplitude ratio) is
+\[
+\tau = \frac{2\eta_2}{\eta_1 + \eta_2}
+     = \frac{2 \times 75.4}{377 + 75.4}
+     = \frac{150.8}{452.4}
+     \approx 0.333.
+\]
+
+\paragraph{3. Standing-wave ratio}
+The standing-wave ratio in medium 1 is
+\[
+S = \frac{1 + |\Gamma|}{1 - |\Gamma|}
+  = \frac{1 + 0.667}{1 - 0.667}
+  = \frac{1.667}{0.333}
+  = 5.
+\]
+
+\paragraph{4. Time-average power densities}
+For a sinusoidal field $E(t)=E_0 \cos\omega t$, the average power density in a medium with impedance $\eta$ is
+\[
+S_{\mathrm{av}}
+= \frac{E_0^2}{2 \eta}.
+\]
+\begin{itemize}
+  \item Incident wave:
+  \[
+    S_{i,\mathrm{av}}
+    = \frac{20^2}{2 \times 377}
+    = \frac{400}{754}
+    \approx 0.530\ \mathrm{W/m^2}.
+  \]
+  \item Reflected wave:
+  \[
+    S_{r,\mathrm{av}}
+    = |\Gamma|^2 S_{i,\mathrm{av}}
+    = (0.667)^2 \times 0.530
+    \approx 0.236\ \mathrm{W/m^2}.
+  \]
+  \item Transmitted wave:
+  \[
+    S_{t,\mathrm{av}}
+    = \frac{(\tau E_0)^2}{2 \eta_2}
+    = \frac{(0.333 \times 20)^2}{2 \times 75.4}
+    = \frac{(6.667)^2}{150.8}
+    = \frac{44.44}{150.8}
+    \approx 0.295\ \mathrm{W/m^2}.
+  \]
+\end{itemize}
+
+\section*{Problem 8.2}
+\textbf{Statement:} A plane wave traveling in medium 1 with $\varepsilon_{r1}=2.25$ is normally incident on medium 2 with $\varepsilon_{r2}=4$. Both are lossless and nonmagnetic. The incident electric field is
+\[
+E_i = \hat y\,8\cos\bigl(6\pi \times 10^9\,t - 30\pi\,x\bigr)\ \mathrm{V/m}.
+\]
+(a) Write the time-domain expressions for $E$ and $H$ in each medium. (b) Find the average power densities of the incident, reflected, and transmitted waves.
+
+\subsection*{Solution}
+\paragraph{1. Wave parameters}
+\[
+\omega = 6\pi \times 10^9\ \mathrm{rad/s},\quad
+k_1 = 30\pi\ \mathrm{rad/m},\quad
+v_1 = \frac{c}{\sqrt{2.25}}
+      = \frac{3\times10^8}{1.5}
+      = 2\times10^8\ \mathrm{m/s},
+\]
+\[
+k_2 = \frac{\omega}{v_2}
+      = \frac{6\pi \times 10^9}{3\times10^8}
+      = 20\pi\ \mathrm{rad/m}.
+\]
+
+\paragraph{2. Intrinsic impedances}
+\[
+\eta_1 = \frac{\eta_0}{\sqrt{2.25}} = 251.3\ \Omega,
+\quad
+\eta_2 = \frac{\eta_0}{2} = 188.5\ \Omega.
+\]
+
+\paragraph{3. Reflection and transmission coefficients}
+\[
+\Gamma = \frac{\eta_2 - \eta_1}{\eta_2 + \eta_1}
+       = \frac{188.5 - 251.3}{188.5 + 251.3}
+       = -0.143,
+\]
+\[
+\tau = 1 + \Gamma = 0.857.
+\]
+
+\paragraph{4. Time-domain fields}
+\textit{In medium 1 ($x\le0$):}
+\[
+\begin{aligned}
+E_i &= \hat y\,8\cos(\omega t - k_1 x), &
+H_i &= -\hat z\,\frac{8}{251.3}\cos(\omega t - k_1 x),\\
+E_r &= \hat y\,8\Gamma\cos(\omega t + k_1 x), &
+H_r &=  \hat z\,\frac{8\Gamma}{251.3}\cos(\omega t + k_1 x).
+\end{aligned}
+\]
+\textit{In medium 2 ($x\ge0$):}
+\[
+\begin{aligned}
+E_t &= \hat y\,8\tau\cos(\omega t - k_2 x), &
+H_t &= -\hat z\,\frac{8\tau}{188.5}\cos(\omega t - k_2 x).
+\end{aligned}
+\]
+
+\paragraph{5. Average power densities}
+\[
+S_{i,\mathrm{av}}
+= \frac{8^2}{2 \times 251.3}
+= 0.127\ \mathrm{W/m^2},\quad
+S_{r,\mathrm{av}}
+= |\Gamma|^2 S_{i,\mathrm{av}}
+= 0.0026\ \mathrm{W/m^2},
+\]
+\[
+S_{t,\mathrm{av}}
+= \frac{(8\tau)^2}{2 \times 188.5}
+= 0.125\ \mathrm{W/m^2}.
+\]
+
+\section*{Problem 8.3}
+\textbf{Statement:} A plane wave traveling in a medium with $\varepsilon_{r1}=9$ is normally incident on a second medium with $\varepsilon_{r2}=4$. Both are lossless and nonmagnetic. The incident magnetic field is
+\[
+H_i = \hat z\,2\cos\bigl(2\pi \times 10^9\,t - k_1 y\bigr)\ \mathrm{A/m}.
+\]
+(a) Write the time-domain expressions for $E$ and $H$ in each medium. (b) Find the average power densities of the incident, reflected, and transmitted waves.
+
+\subsection*{Solution}
+\paragraph{1. Wave parameters}
+\[
+\omega = 2\pi \times 10^9\ \mathrm{rad/s},\quad
+k_1 = \frac{\omega}{c/\sqrt{9}} = 20\pi\ \mathrm{rad/m},\quad
+k_2 = \frac{\omega}{c/\sqrt{4}} = 30\pi\ \mathrm{rad/m}.
+\]
+
+\paragraph{2. Intrinsic impedances}
+\[
+\eta_1 = \frac{\eta_0}{3} = 125.7\ \Omega,
+\quad
+\eta_2 = \frac{\eta_0}{2} = 188.5\ \Omega.
+\]
+
+\paragraph{3. Reflection and transmission coefficients}
+\[
+\Gamma = \frac{\eta_2 - \eta_1}{\eta_2 + \eta_1}
+       = \frac{188.5 - 125.7}{314.2}
+       = 0.200,
+\quad
+\tau = 1 + \Gamma = 1.200.
+\]
+
+\paragraph{4. Time-domain fields}
+\textit{In medium 1 ($y\le0$):}
+\[
+\begin{aligned}
+H_i &= \hat z\,2\cos(\omega t - k_1 y), &
+E_i &= \hat x\,125.7 \times 2\cos(\omega t - k_1 y),\\
+H_r &= \hat z\,2\Gamma\cos(\omega t + k_1 y), &
+E_r &= -\hat x\,125.7 \times 2\Gamma\cos(\omega t + k_1 y).
+\end{aligned}
+\]
+\textit{In medium 2 ($y\ge0$):}
+\[
+\begin{aligned}
+H_t &= \hat z\,2\tau\cos(\omega t - k_2 y), &
+E_t &= \hat x\,188.5 \times 2\tau\cos(\omega t - k_2 y).
+\end{aligned}
+\]
+
+\paragraph{5. Average power densities}
+\[
+S_{i,\mathrm{av}}
+= \frac{(2)^2 \eta_1}{2}
+= 251.3\ \mathrm{W/m^2},\quad
+S_{r,\mathrm{av}}
+= |\Gamma|^2 S_{i,\mathrm{av}}
+= 0.04 \times 251.3
+= 10.05\ \mathrm{W/m^2},
+\]
+\[
+S_{t,\mathrm{av}}
+= S_{i,\mathrm{av}} - S_{r,\mathrm{av}}
+= 241.3\ \mathrm{W/m^2}.
+\]
+
+\section*{Problem 8.4}
+\textbf{...}
+
+\section*{Problem 8.4}
+\textbf{Statement}: A 200 MHz, left‐hand circularly polarized plane wave with $|E|=5\,$V/m is normally incident in air on a dielectric ($\varepsilon_r=4$) occupying $z\ge0$. Determine:
+\begin{enumerate}
+  \item The phasor $\tilde E_i$ if at $z=0$, $t=0$ the field is at its positive maximum.
+  \item The reflection coefficient $\Gamma$ and transmission coefficient $\tau$.
+  \item The phasors $\tilde E_r$, $\tilde E_t$, and the total phasor $\tilde E_{\rm tot}$ for $z\le0$.
+  \item The percentages of incident power reflected and transmitted.
+\end{enumerate}
+
+\subsection*{Solution}
+
+\paragraph{1. Incident phasor}
+Left‐hand circular polarization means $E_x$ leads $E_y$ by $90^\circ$, so
+\[
+\tilde E_i = 5\,(\hat x - j\,\hat y)\,e^{-j k_1 z}.
+\]
+
+\paragraph{2. Reflection and transmission coefficients}
+Intrinsic impedances:
+\[
+\eta_1 = 377\ \Omega,\quad 
+\eta_2 = \frac{377}{\sqrt{4}} = 188.5\ \Omega.
+\]
+Thus
+\[
+\Gamma = \frac{\eta_2 - \eta_1}{\eta_2 + \eta_1}
+       = \frac{188.5 - 377}{188.5 + 377}
+       = -0.333,
+\qquad
+\tau = 1 + \Gamma = 0.667.
+\]
+
+\paragraph{3. Reflected and transmitted phasors}
+\[
+\tilde E_r = \Gamma\,5\,(\hat x - j\,\hat y)\,e^{+j k_1 z},
+\qquad
+\tilde E_t = \tau\,5\,(\hat x - j\,\hat y)\,e^{-j k_2 z}.
+\]
+Total for $z\le0$:
+\[
+\tilde E_{\rm tot} 
+= \tilde E_i + \tilde E_r
+= 5(1+\Gamma)\,(\hat x - j\,\hat y)\,e^{-j k_1 z}.
+\]
+
+\paragraph{4. Power percentages}
+\[
+R = |\Gamma|^2 = (0.333)^2 = 0.111\quad(11.1\%\text{ reflected}),
+\]
+\[
+T = 1 - R = 0.889\quad(88.9\%\text{ transmitted}).
+\]
+
+\section*{Problem 8.5}
+\textbf{Statement}: Repeat Problem 8.4 but replace the dielectric with a poor conductor: $\varepsilon_r=2.25$, $\mu_r=1$, and $\sigma=10^{-4}\,$S/m.
+
+\subsection*{Solution}
+
+\paragraph{1. Conductor intrinsic impedance}
+Using the low‐loss approximation,
+\[
+\eta_2 = \sqrt{\frac{j\omega\mu_0}{\sigma + j\omega\varepsilon_0\varepsilon_r}}
+\approx \frac{\eta_0}{\sqrt{\varepsilon_r}}
+\Bigl(1 + j\,\frac{\sigma}{2\omega\varepsilon_0\varepsilon_r}\Bigr)
+= 251.3\,(1 + j\,0.002)
+= 251.3 + j\,0.50\ \Omega.
+\]
+
+\paragraph{2. Reflection coefficient}
+\[
+\Gamma = \frac{\eta_2 - \eta_1}{\eta_2 + \eta_1}
+       = \frac{(251.3 + j\,0.50) - 377}{(251.3 + j\,0.50) + 377}
+       \approx -0.200 + j\,0.0008,
+\]
+\[
+|\Gamma|^2 \approx 0.040 \quad(4\%\text{ reflected}).
+\]
+
+\paragraph{3. Transmission coefficient}
+\[
+\tau = 1 + \Gamma \approx 0.800 - j\,0.0008 \quad(96\%\text{ transmitted}).
+\]
+
+\paragraph{4. Reflected and transmitted phasors}
+\[
+\tilde E_r = \Gamma\,\tilde E_i,
+\qquad
+\tilde E_t = \tau\,\tilde E_i\,e^{-\gamma_2 z},
+\]
+where $\gamma_2$ is the complex propagation constant in the conductor.
+
+% Batch 2: Problems 8.6--8.10
+
+\section*{Problem 8.6}
+\textbf{Statement:} A 50 MHz plane wave with $E_i = 50\,$V/m is normally incident from air ($\varepsilon_{r1}=1$) onto a lossless dielectric with $\varepsilon_{r2}=36$. Determine:
+\begin{enumerate}
+  \item The reflection coefficient $\Gamma$.
+  \item The time-average power densities $S_{i,\mathrm{av}}$ and $S_{r,\mathrm{av}}$.
+  \item The distance $\ell_{\min}$ from the interface to the first field minimum in the air region.
+\end{enumerate}
+
+\subsection*{Solution}
+
+\paragraph{1. Intrinsic impedances}
+\[
+\eta_1 = \frac{\eta_0}{\sqrt{1}} = 377\ \Omega,
+\quad
+\eta_2 = \frac{\eta_0}{\sqrt{36}} = \frac{377}{6} = 62.83\ \Omega.
+\]
+
+\paragraph{2. Reflection coefficient}
+\[
+\Gamma
+= \frac{\eta_2 - \eta_1}{\eta_2 + \eta_1}
+= \frac{62.83 - 377}{62.83 + 377}
+\approx -0.714.
+\]
+
+\paragraph{3. Time-average power densities}
+\[
+S_{i,\mathrm{av}}
+= \frac{E_i^2}{2\,\eta_1}
+= \frac{50^2}{2 \times 377}
+\approx 3.32\ \mathrm{W/m^2},
+\]
+\[
+S_{r,\mathrm{av}}
+= |\Gamma|^2\,S_{i,\mathrm{av}}
+= (0.714)^2 \times 3.32
+\approx 1.69\ \mathrm{W/m^2}.
+\]
+
+\paragraph{4. Location of first field minimum}
+The wavelength in air is
+\[
+\lambda_1 = \frac{c}{f}
+= \frac{3\times10^8}{50\times10^6}
+= 6\ \mathrm{m}.
+\]
+The first minimum occurs at
+\[
+\ell_{\min} = \frac{\lambda_1}{4} = 1.5\ \mathrm{m}.
+\]
+
+\section*{Problem 8.7}
+\textbf{Statement:} In the air region of Problem 8.6, find:
+\begin{enumerate}
+  \item The maximum total electric field amplitude $E_{\max}$.
+  \item The distance $\ell_{\max}$ from the interface to the first field maximum.
+\end{enumerate}
+
+\subsection*{Solution}
+\[
+E_{\max} = E_i \,(1 + |\Gamma|)
+= 50 \times (1 + 0.714)
+= 85.7\ \mathrm{V/m}.
+\]
+Since maxima and minima alternate every $\lambda_1/4$,
+\[
+\ell_{\max} = \frac{\lambda_1}{4} = 1.5\ \mathrm{m}.
+\]
+
+\section*{Problem 8.8}
+\textbf{Statement:} Repeat Problem 8.6 but with medium 2 a conductor: $\varepsilon_{r2}=1$, $\mu_{r2}=1$, $\sigma = 2.78\times10^{-3}\,$S/m. Determine:
+\begin{enumerate}
+  \item The reflection coefficient $\Gamma$.
+  \item The time-average power densities $S_{i,\mathrm{av}}$ and $S_{r,\mathrm{av}}$.
+  \item The distance $z_{\min}$ from the interface to the first field minimum.
+\end{enumerate}
+
+\subsection*{Solution}
+
+\paragraph{1. Conductor intrinsic impedance}
+Using the poor-conductor approximation,
+\[
+\eta_c \approx (1 - j)\,\sqrt{\frac{\omega \mu_0}{2\sigma}}
+\approx 266.5\,(1 - j)\ \Omega.
+\]
+
+\paragraph{2. Reflection coefficient}
+\[
+\Gamma
+= \frac{\eta_c - \eta_1}{\eta_c + \eta_1}
+\approx 0.414\,e^{-j90^\circ}.
+\]
+
+\paragraph{3. Time-average power densities}
+\[
+S_{i,\mathrm{av}} = \frac{50^2}{2 \times 377} \approx 3.32\ \mathrm{W/m^2},
+\]
+\[
+S_{r,\mathrm{av}}
+= |\Gamma|^2\,S_{i,\mathrm{av}}
+= (0.414)^2 \times 3.32
+\approx 0.57\ \mathrm{W/m^2}.
+\]
+
+\paragraph{4. First field minimum}
+For $\Gamma\approx0.414e^{-j90^\circ}$,
+\[
+z_{\min}
+= \frac{\pi - \arg(\Gamma)}{2k_1}
+= \frac{\pi - (-\frac{\pi}{2})}{2\,(2\pi/\lambda_1)}
+= 2.25\ \mathrm{m}.
+\]
+
+\section*{Problem 8.9}
+\textbf{Statement:} Three lossless dielectrics have $\varepsilon_{r1}, \varepsilon_{r2}, \varepsilon_{r3}$. A quarter-wave transformer layer (medium 2) of thickness $d$ is inserted between media 1 and 3. Find the condition for zero net reflection.
+
+\subsection*{Solution}
+Zero reflection requires
+\[
+\varepsilon_{r2} = \sqrt{\varepsilon_{r1}\,\varepsilon_{r3}},
+\qquad
+d = \frac{\lambda_2}{4}
+      = \frac{c}{4f\,\sqrt{\varepsilon_{r2}}}.
+\]
+
+\section*{Problem 8.10}
+\textbf{Statement:} A wave in air ($\varepsilon_{r1}=1$) is normally incident on a layer ($\varepsilon_{r2}=9$) of thickness $d=1.2\,$m at $f=50\,$MHz, backed by medium 3 ($\varepsilon_{r3}=4$). All media are lossless. Determine:
+\begin{enumerate}
+  \item The input impedance $Z_{\mathrm{in}}$ seen at the first interface.
+  \item The fraction of incident power reflected.
+\end{enumerate}
+
+\subsection*{Solution}
+\paragraph{1. Parameters}
+\[
+\eta_1 = 377\ \Omega,\quad
+\eta_2 = \frac{377}{3} = 125.7\ \Omega,\quad
+\eta_3 = \frac{377}{2} = 188.5\ \Omega,
+\]
+\[
+\lambda_2 = \frac{c}{f\sqrt{9}} = 2\ \mathrm{m},
+\quad
+\beta_2 = \frac{2\pi}{\lambda_2} = \pi\ \mathrm{rad/m},
+\quad
+\beta_2 d = 1.2\pi.
+\]
+
+\paragraph{2. Input impedance}
+\[
+Z_{\mathrm{in}}
+= \eta_2
+  \frac{\eta_3 + j\,\eta_2\tan(\beta_2 d)}
+       {\eta_2 + j\,\eta_3\tan(\beta_2 d)}
+\approx 0.43\,\eta_0\,\angle(-51.7^\circ).
+\]
+
+\paragraph{3. Reflected power fraction}
+\[
+\Gamma = \frac{Z_{\mathrm{in}} - \eta_1}{Z_{\mathrm{in}} + \eta_1},
+\quad
+|\Gamma|^2 \approx 0.24
+\quad(24\%\text{ reflected}).
+\]
+
+% Batch 3: Problems 8.11--8.15
+
+\section*{Problem 8.11}
+\textbf{Statement:} Repeat Problem 8.10 but interchange $\varepsilon_{r1}$ and $\varepsilon_{r3}$ (now $\varepsilon_{r1}=4$, $\varepsilon_{r2}=9$, $\varepsilon_{r3}=1$, $d=1.2\,$m, $f=50\,$MHz). Determine the reflected power fraction.
+
+\subsection*{Solution}
+\paragraph{1. Impedances and phase shift}
+\[
+\eta_1 = \frac{377}{2} = 188.5\ \Omega,\quad
+\eta_2 = \frac{377}{3} = 125.7\ \Omega,\quad
+\eta_3 = 377\ \Omega,
+\]
+\[
+\beta_2 d = \frac{2\pi}{2\,\mathrm m}\times1.2\,\mathrm m = 1.2\pi.
+\]
+
+\paragraph{2. Input impedance}
+\[
+Z_{\rm in}
+= \eta_2
+  \frac{\eta_3 + j\,\eta_2\tan(1.2\pi)}
+       {\eta_2 + j\,\eta_3\tan(1.2\pi)}
+\approx 0.43\,\eta_0\,\angle(-51.7^\circ).
+\]
+
+\paragraph{3. Reflected power fraction}
+\[
+\Gamma = \frac{Z_{\rm in} - \eta_1}{Z_{\rm in} + \eta_1}, 
+\quad
+|\Gamma|^2 \approx 0.24\quad(24\%\text{ reflected}).
+\]
+
+\section*{Problem 8.12}
+\textbf{Statement:} Orange light of $\lambda_0=0.61\,\mu$m in air enters glass with $\varepsilon_r=1.44$. What color does an embedded sensor see?
+
+\subsection*{Solution}
+\paragraph{1. Refractive index}
+\[
+n = \sqrt{\varepsilon_r} = \sqrt{1.44} = 1.20.
+\]
+\paragraph{2. Wavelength in glass}
+\[
+\lambda = \frac{\lambda_0}{n} = \frac{0.61\,\mu\mathrm m}{1.20} \approx 0.508\,\mu\mathrm m.
+\]
+\paragraph{3. Color}
+Wavelength $0.508\,\mu$m corresponds to green light.
+
+\section*{Problem 8.13}
+\textbf{Statement:} A plane wave of unknown frequency is normally incident on a perfect conductor. The total electric field is zero at $z=2\,$m and nowhere closer. Find the frequency $f$.
+
+\subsection*{Solution}
+\paragraph{1. Standing‐wave nodes}
+Perfect conductor forces $E=0$ at $z=0$ and at each half‐wavelength:
+\[
+\frac{\lambda}{2} = 2\ \mathrm m
+\quad\Longrightarrow\quad
+\lambda = 4\ \mathrm m.
+\]
+\paragraph{2. Frequency}
+\[
+f = \frac{c}{\lambda} = \frac{3\times10^8}{4} = 75\ \mathrm{MHz}.
+\]
+
+\section*{Problem 8.14}
+\textbf{Statement:} Soap film in air has $\varepsilon_r=1.72$, illuminated by yellow light $\lambda_0=0.6\,\mu$m. What thickness $d$ yields strong reflection at normal incidence?
+
+\subsection*{Solution}
+\paragraph{1. Refractive index}
+\[
+n = \sqrt{1.72} \approx 1.311.
+\]
+\paragraph{2. Wavelength in film}
+\[
+\lambda_f = \frac{\lambda_0}{n} = \frac{0.6\,\mu\mathrm m}{1.311} \approx 0.458\,\mu\mathrm m.
+\]
+\paragraph{3. Quarter‐wave thickness}
+\[
+d = \frac{\lambda_f}{4} \approx \frac{0.458}{4} = 0.1145\,\mu\mathrm m.
+\]
+
+\section*{Problem 8.15}
+\textbf{Statement:} A 5 MHz plane wave ($E_0=10\,$V/m) is normally incident on a semi‐infinite conductor with $\varepsilon_r=4$, $\mu_r=1$, and conductivity $\sigma$. Find the average power absorbed in the first $2\,$mm of the conductor.
+
+\subsection*{Solution}
+\paragraph{1. Conductor impedance (low‐loss)}
+\[
+\eta_c \approx (1+j)\,\sqrt{\frac{\omega\mu_0}{2\sigma}},
+\quad
+\Re(\eta_c)\approx 1.14\ \Omega.
+\]
+\paragraph{2. Reflection coefficient}
+\[
+\Gamma \approx -1 + 3.3\times10^{-3},
+\quad
+E_t = (1+\Gamma)E_0 \approx 3.3\times10^{-2}\ \mathrm{V/m}.
+\]
+\paragraph{3. Incident power density}
+\[
+P_0 = \frac{|E_t|^2}{2\,\Re(\eta_c)} 
+    \approx \frac{(0.033)^2}{2\times1.14} 
+    \approx 4.8\times10^{-4}\ \mathrm{W/m^2}.
+\]
+\paragraph{4. Attenuation constant}
+\[
+\alpha \approx 44.43\ \mathrm{Np/m}.
+\]
+\paragraph{5. Power absorbed in first $2\,$mm}
+\[
+P_{\rm abs}
+= P_0 \bigl[1 - e^{-2\alpha z}\bigr]_{z=2\times10^{-3}}
+\approx 4.8\times10^{-4}\bigl[1 - e^{-0.1777}\bigr]
+\approx 1.0\times10^{-4}\ \mathrm{W/m^2}.
+\]
+% Batch 3: Problems 8.11--8.15
+
+\section*{Problem 8.11}
+\textbf{Statement:} Repeat Problem 8.10 but interchange $\varepsilon_{r1}$ and $\varepsilon_{r3}$ (now $\varepsilon_{r1}=4$, $\varepsilon_{r2}=9$, $\varepsilon_{r3}=1$, $d=1.2\,$m, $f=50\,$MHz). Determine the reflected power fraction.
+
+\subsection*{Solution}
+\paragraph{1. Impedances and phase shift}
+\[
+\eta_1 = \frac{377}{2} = 188.5\ \Omega,\quad
+\eta_2 = \frac{377}{3} = 125.7\ \Omega,\quad
+\eta_3 = 377\ \Omega,
+\]
+\[
+\beta_2 d = \frac{2\pi}{2\,\mathrm m}\times1.2\,\mathrm m = 1.2\pi.
+\]
+
+\paragraph{2. Input impedance}
+\[
+Z_{\rm in}
+= \eta_2
+  \frac{\eta_3 + j\,\eta_2\tan(1.2\pi)}
+       {\eta_2 + j\,\eta_3\tan(1.2\pi)}
+\approx 0.43\,\eta_0\,\angle(-51.7^\circ).
+\]
+
+\paragraph{3. Reflected power fraction}
+\[
+\Gamma = \frac{Z_{\rm in} - \eta_1}{Z_{\rm in} + \eta_1}, 
+\quad
+|\Gamma|^2 \approx 0.24\quad(24\%\text{ reflected}).
+\]
+
+\section*{Problem 8.12}
+\textbf{Statement:} Orange light of $\lambda_0=0.61\,\mu$m in air enters glass with $\varepsilon_r=1.44$. What color does an embedded sensor see?
+
+\subsection*{Solution}
+\paragraph{1. Refractive index}
+\[
+n = \sqrt{\varepsilon_r} = \sqrt{1.44} = 1.20.
+\]
+\paragraph{2. Wavelength in glass}
+\[
+\lambda = \frac{\lambda_0}{n} = \frac{0.61\,\mu\mathrm m}{1.20} \approx 0.508\,\mu\mathrm m.
+\]
+\paragraph{3. Color}
+Wavelength $0.508\,\mu$m corresponds to green light.
+
+\section*{Problem 8.13}
+\textbf{Statement:} A plane wave of unknown frequency is normally incident on a perfect conductor. The total electric field is zero at $z=2\,$m and nowhere closer. Find the frequency $f$.
+
+\subsection*{Solution}
+\paragraph{1. Standing‐wave nodes}
+Perfect conductor forces $E=0$ at $z=0$ and at each half‐wavelength:
+\[
+\frac{\lambda}{2} = 2\ \mathrm m
+\quad\Longrightarrow\quad
+\lambda = 4\ \mathrm m.
+\]
+\paragraph{2. Frequency}
+\[
+f = \frac{c}{\lambda} = \frac{3\times10^8}{4} = 75\ \mathrm{MHz}.
+\]
+
+\section*{Problem 8.14}
+\textbf{Statement:} Soap film in air has $\varepsilon_r=1.72$, illuminated by yellow light $\lambda_0=0.6\,\mu$m. What thickness $d$ yields strong reflection at normal incidence?
+
+\subsection*{Solution}
+\paragraph{1. Refractive index}
+\[
+n = \sqrt{1.72} \approx 1.311.
+\]
+\paragraph{2. Wavelength in film}
+\[
+\lambda_f = \frac{\lambda_0}{n} = \frac{0.6\,\mu\mathrm m}{1.311} \approx 0.458\,\mu\mathrm m.
+\]
+\paragraph{3. Quarter‐wave thickness}
+\[
+d = \frac{\lambda_f}{4} \approx \frac{0.458}{4} = 0.1145\,\mu\mathrm m.
+\]
+
+\section*{Problem 8.15}
+\textbf{Statement:} A 5 MHz plane wave ($E_0=10\,$V/m) is normally incident on a semi‐infinite conductor with $\varepsilon_r=4$, $\mu_r=1$, and conductivity $\sigma$. Find the average power absorbed in the first $2\,$mm of the conductor.
+
+\subsection*{Solution}
+\paragraph{1. Conductor impedance (low‐loss)}
+\[
+\eta_c \approx (1+j)\,\sqrt{\frac{\omega\mu_0}{2\sigma}},
+\quad
+\Re(\eta_c)\approx 1.14\ \Omega.
+\]
+\paragraph{2. Reflection coefficient}
+\[
+\Gamma \approx -1 + 3.3\times10^{-3},
+\quad
+E_t = (1+\Gamma)E_0 \approx 3.3\times10^{-2}\ \mathrm{V/m}.
+\]
+\paragraph{3. Incident power density}
+\[
+P_0 = \frac{|E_t|^2}{2\,\Re(\eta_c)} 
+    \approx \frac{(0.033)^2}{2\times1.14} 
+    \approx 4.8\times10^{-4}\ \mathrm{W/m^2}.
+\]
+\paragraph{4. Attenuation constant}
+\[
+\alpha \approx 44.43\ \mathrm{Np/m}.
+\]
+\paragraph{5. Power absorbed in first $2\,$mm}
+\[
+P_{\rm abs}
+= P_0 \bigl[1 - e^{-2\alpha z}\bigr]_{z=2\times10^{-3}}
+\approx 4.8\times10^{-4}\bigl[1 - e^{-0.1777}\bigr]
+\approx 1.0\times10^{-4}\ \mathrm{W/m^2}.
+\]
+
+% Batch 4: Problems 8.16--8.20
+
+\section*{Problem 8.16}
+\textbf{Statement:} An air bubble in glass ($\varepsilon_r = 2.25$) appears at an apparent depth of $6.81\,$cm when viewed from above at $60^\circ$. Find its true depth.
+
+\subsection*{Solution}
+\paragraph{1. Refractive index of glass}
+\[
+n = \sqrt{\varepsilon_r} = \sqrt{2.25} = 1.5.
+\]
+\paragraph{2. Snell’s law}
+\[
+\sin\theta_i = n \sin\theta_t
+\quad\Longrightarrow\quad
+\sin\theta_t = \frac{\sin60^\circ}{1.5} = \frac{\sqrt3/2}{1.5} = \frac{\sqrt3}{3},
+\]
+\[
+\theta_t = 35.26^\circ.
+\]
+\paragraph{3. Apparent depth relation}
+\[
+d_{\rm app} = d_{\rm true}\,\frac{\cos\theta_t}{\cos\theta_i}
+\quad\Longrightarrow\quad
+d_{\rm true}
+= d_{\rm app}\,\frac{\cos60^\circ}{\cos35.26^\circ}
+= 6.81\,\mathrm{cm}\,\frac{0.5}{0.8165}
+\approx 4.17\,\mathrm{cm}.
+\]
+
+\section*{Problem 8.17}
+\textbf{Statement:} A ray from a point source on the axis passes through air → glass ($n_1=1.3$, thickness $3\,$cm) → dielectric ($n_2=1.5$, thickness $4\,$cm) → air, emerging at $45^\circ$ and striking a screen $2\,$cm beyond. If it first intersects the top of the glass at $2\,$cm above the axis, find the height on the screen.
+
+\subsection*{Solution}
+\paragraph{1. Angles via Snell’s law}
+\[
+\sin\theta_1 = \frac{1}{1.3}\sin45^\circ = 0.5432,\quad \theta_1 = 32.9^\circ,
+\]
+\[
+\sin\theta_2 = \frac{1.3}{1.5}\sin32.9^\circ = 0.472,\quad \theta_2 = 28.2^\circ.
+\]
+\paragraph{2. Lateral shifts}
+\[
+\Delta x_1 = 3\,\mathrm{cm}\,\tan32.9^\circ = 1.94\,\mathrm{cm},
+\quad
+\Delta x_2 = 4\,\mathrm{cm}\,\tan28.2^\circ = 2.14\,\mathrm{cm},
+\]
+\[
+\Delta x_3 = 2\,\mathrm{cm}\,\tan45^\circ = 2.00\,\mathrm{cm}.
+\]
+\paragraph{3. Total height}
+\[
+y = 2.00 + 1.94 + 2.14 + 2.00 = 8.08\,\mathrm{cm}.
+\]
+
+\section*{Problem 8.18}
+\textbf{Statement:} Light in glass ($n=1.5$) strikes an oil drop at a flat face. Total internal reflection occurs for $\theta > 53^\circ$. Find the refractive index of the oil.
+
+\subsection*{Solution}
+\[
+\sin\theta_c = \frac{n_{\rm oil}}{n_{\rm glass}}
+\quad\Longrightarrow\quad
+n_{\rm oil} = 1.5 \sin53^\circ = 1.5 \times 0.7986 \approx 1.20.
+\]
+
+\section*{Problem 8.19}
+\textbf{Statement:} A penny lies $30\,$cm below a water surface ($n=1.33$). What diameter paper on the surface will just hide it?
+
+\subsection*{Solution}
+\paragraph{1. Critical angle}
+\[
+\sin\theta_c = \frac{1}{1.33} = 0.7519,\quad \theta_c = 48.75^\circ.
+\]
+\paragraph{2. Shadow radius}
+\[
+r = d\,\tan\theta_c = 30\,\mathrm{cm}\times1.142 = 34.3\,\mathrm{cm}.
+\]
+\paragraph{3. Diameter}
+\[
+D = 2r = 68.6\,\mathrm{cm}.
+\]
+
+\section*{Problem 8.20}
+\textbf{Statement:} Derive the maximum data rate $f_p$ for an optical fiber of length $L$ and core index $n_1$, when the input cone is restricted to angles $0$ to $\theta'$ (where $\theta' < \theta_a$).
+
+\subsection*{Solution}
+\paragraph{1. Pulse‐spreading delay}
+Fastest ray: axial; slowest: at internal angle $\theta_2'$ with
+\[
+\Delta t = \frac{n_1 L}{c}\,\bigl(\sec\theta_2' - 1\bigr).
+\]
+\paragraph{2. Maximum data rate}
+\[
+f_p = \frac{1}{\Delta t}
+= \frac{c}{n_1 L\,(\sec\theta_2' - 1)},
+\]
+with $\theta_2'$ related to launch angle $\theta'$ by Snell’s law $n_0 \sin\theta' = n_1 \sin\theta_2'$.
+
+% Batch 5: Problems 8.21--8.25
+
+\section*{Problem 8.21}
+\textbf{Statement:} A ray in air ($n_0=1$) strikes a 3 cm‐thick glass layer ($n_1=1.3$), then a 4 cm‐thick dielectric layer ($n_2=1.5$), and emerges into air, hitting a screen 2 cm beyond. The ray first intersects the top of the glass layer at 2 cm above the axis. Find its height on the screen.
+
+\subsection*{Solution}
+\paragraph{1. Angles}
+\[
+\sin\theta_1 = \frac{n_0}{n_1}\sin45^\circ = \frac{0.7071}{1.3} = 0.5432,\quad \theta_1 = 32.9^\circ,
+\]
+\[
+\sin\theta_2 = \frac{n_1}{n_2}\sin\theta_1 = \frac{1.3\times0.5432}{1.5} = 0.471,\quad \theta_2 = 28.1^\circ.
+\]
+
+\paragraph{2. Lateral shifts}
+\[
+\Delta x_1 = 3\,\mathrm{cm}\,\tan32.9^\circ = 1.94\,\mathrm{cm},
+\quad
+\Delta x_2 = 4\,\mathrm{cm}\,\tan28.1^\circ = 2.14\,\mathrm{cm},
+\]
+\[
+\Delta x_3 = 2\,\mathrm{cm}\,\tan45^\circ = 2.00\,\mathrm{cm}.
+\]
+
+\paragraph{3. Total height}
+\[
+y = 2.00 + 1.94 + 2.14 + 2.00 = 8.08\,\mathrm{cm}.
+\]
+
+\section*{Problem 8.22}
+\textbf{Statement:} A glass block ($n_2=1.6$) lies beneath 10 cm of water ($n_1=1.33$). An air bubble in the glass appears at 6.81 cm below the water surface when viewed from above at 60°. Find its true depth below the water surface.
+
+\subsection*{Solution}
+\paragraph{1. Angles}
+\[
+\sin\theta_1 = \frac{\sin60^\circ}{1.33} = 0.652,\quad \theta_1 = 40.7^\circ,
+\]
+\[
+\sin\theta_2 = \frac{1.33\sin\theta_1}{1.6} = 0.543,\quad \theta_2 = 32.9^\circ.
+\]
+\paragraph{2. Net foreshortening}
+\[
+\frac{\cos\theta_2}{\cos\theta_1}
+= \frac{0.8387}{0.7571} = 1.108,
+\]
+\[
+d_{\rm true}
+= \frac{6.81\,\mathrm{cm}}{(\cos\theta_2/\cos\theta_1)} 
+\approx \frac{6.81}{0.7571/0.8387}
+= 11.4\,\mathrm{cm}.
+\]
+
+\section*{Problem 8.23}
+\textbf{Statement:} Light in glass ($n=1.5$) strikes oil at a flat face with total internal reflection for $\theta>53^\circ$. Find $n_{\rm oil}$.
+
+\subsection*{Solution}
+\[
+n_{\rm oil} = n_{\rm glass}\,\sin53^\circ
+= 1.5\times0.7986
+= 1.20.
+\]
+
+\section*{Problem 8.24}
+\textbf{Statement:} A penny lies 30 cm below water ($n=1.33$). What diameter paper disc hides it completely?
+
+\subsection*{Solution}
+\[
+\sin\theta_c = \frac{1}{1.33} = 0.7519,\quad \theta_c = 48.75^\circ,
+\]
+\[
+r = 30\,\mathrm{cm}\,\tan48.75^\circ = 34.3\,\mathrm{cm},
+\quad
+D = 2r = 68.6\,\mathrm{cm}.
+\]
+
+\section*{Problem 8.25}
+\textbf{Statement:} For optical fiber in water ($n_0=1.33$) with core $n_f=1.52$, cladding $n_c=1.49$, length $L=1\,$km, find acceptance angle $\theta_a$ and maximum data rate $f_p$.
+
+\subsection*{Solution}
+\paragraph{1. Acceptance angle}
+\[
+\sin\theta_a
+= \frac{\sqrt{n_f^2 - n_c^2}}{n_0}
+= \frac{\sqrt{1.52^2 - 1.49^2}}{1.33}
+= 0.226,\quad
+\theta_a = 13.0^\circ.
+\]
+
+\paragraph{2. Maximum data rate}
+\[
+f_p 
+= \frac{c}{n_1 L(\sec\theta_a - 1)}
+= \frac{3\times10^8}{1.52 \times 10^3\,(\sec13^\circ - 1)}
+\approx 4.9\times10^6\ \mathrm{Hz}.
+\]
+
+\begin{itemize}
+  \item[7.36] \textbf{Elliptically polarized wave:} A plane wave propagates in a lossless, non-magnetic medium with field components
+  \[
+    E_y(z,t)=3\cos(\omega t -kz)\ \mathrm{V/m},\qquad
+    E_z(z,t)=4\cos\bigl(\omega t -kz + \tfrac{\pi}{3}\bigr)\ \mathrm{V/m}.
+  \]
+  \begin{enumerate}[(a)]
+    \item Instantaneous field expressions:
+    \[
+      E_y(z,t)=3\cos(\omega t -kz),\qquad
+      E_z(z,t)=4\cos\Bigl(\omega t -kz + \frac{\pi}{3}\Bigr).
+    \]
+    \item Polarization angles.  Using
+    \[
+      \tan(2\gamma)
+        =\frac{2E_{y0}E_{z0}\cos\delta}{E_{y0}^2 - E_{z0}^2},
+      \quad
+      \sin(2\chi)
+        =\frac{2E_{y0}E_{z0}\sin\delta}{E_{y0}^2 + E_{z0}^2},
+    \]
+    with \(E_{y0}=3\), \(E_{z0}=4\), \(\delta=\pi/3\), one finds
+    \[
+      2\gamma=\arctan\!\Bigl(\!-\tfrac{12}{7}\Bigr)\approx -59.74^\circ
+      \;\Rightarrow\;
+      \gamma\approx -29.87^\circ,
+    \]
+    \[
+      2\chi=\arcsin\!\Bigl(\tfrac{20.784}{25}\Bigr)\approx56.30^\circ
+      \;\Rightarrow\;
+      \chi\approx28.15^\circ.
+    \]
+    \item Polarization sense.  Since the \(E_z\) component leads \(E_y\) by \(60^\circ\), the tip of \(\mathbf E\) rotates in a right‐hand sense about the direction of propagation (\(+z\)).  Hence the wave is \emph{right‐hand elliptical}.
+  \end{enumerate}
+\end{itemize}
+
+% Batch 6: Problems 8.26--8.30
+
+\section*{Problem 8.26}
+\textbf{Statement:} For an optical fiber of core index $n_f$ and length $L$, the standard data-rate limit (Eq.\,(8.45)) assumes the entire acceptance cone $0\le\theta\le\theta_a$ is used. Suppose the launch cone is restricted to $0\le\theta\le\theta'<\theta_a$.  
+\begin{enumerate}
+  \item Derive the maximum data rate $f_p$ in terms of $\theta'$.
+  \item Evaluate $f_p$ when $\theta'=5^\circ$, $n_f=1.52$, $L=1\,$km, in air ($n_0=1$).
+\end{enumerate}
+
+\subsection*{Solution}
+\paragraph{1. Pulse-spreading delay}
+Fastest ray travels axial path; slowest at internal angle $\theta_2'$ satisfying $n_0\sin\theta'=n_f\sin\theta_2'$.  
+The time difference is
+\[
+\Delta t = \frac{n_f L}{c}\bigl(\sec\theta_2' - 1\bigr).
+\]
+Hence
+\[
+f_p = \frac{1}{\Delta t}
+    = \frac{c}{n_f L\,(\sec\theta_2' - 1)}.
+\]
+
+\paragraph{2. Numerical evaluation}
+For $\theta'=5^\circ$:  
+\[
+\sin\theta_2' = \frac{\sin5^\circ}{1.52}\approx0.0573,\quad
+\sec\theta_2' = \frac{1}{\sqrt{1 - 0.0573^2}}\approx1.0016.
+\]
+Thus
+\[
+f_p = \frac{3\times10^8}{1.52\times10^3\,(1.0016 - 1)}
+= \frac{3\times10^8}{1.52\times10^3\times0.0016}
+\approx 2.6\times10^7\ \mathrm{Hz}.
+\]
+
+\section*{Problem 8.27}
+\textbf{Statement:} A 2-km optical fiber with $n_f=1.6$ and cladding $n_c=1.57$ operates at $f=100\,$THz. Compute the maximum data rate $f_p$ using full acceptance cone.
+
+\subsection*{Solution}
+\[
+f_p = \frac{c\,n_c}{2\,n_f\,L\,(n_f - n_c)}
+      = \frac{3\times10^8\times1.57}{2\times1.6\times2000\times0.03}
+      \approx 2.45\times10^6\ \mathrm{Hz}.
+\]
+
+\section*{Problem 8.28}
+\textbf{Statement:} A 3-km optical fiber with $n_f=1.51$, $n_c=1.48$ operates at $f=300\,$THz. Compute $f_p$ using full cone.
+
+\subsection*{Solution}
+\[
+f_p = \frac{c\,n_c}{2\,n_f\,L\,(n_f - n_c)}
+      = \frac{3\times10^8\times1.48}{2\times1.51\times3000\times0.03}
+      \approx 1.63\times10^6\ \mathrm{Hz}.
+\]
+
+\section*{Problem 8.29}
+\textbf{Statement:} A plane wave in air with phasor
+\[
+\tilde E_i = \hat y\,20\,e^{-j(3x + 4z)}\ \mathrm{V/m}
+\]
+is incident on a dielectric ($\varepsilon_r=4$) filling $z\ge0$. Determine:
+\begin{enumerate}
+  \item Polarization and angle of incidence.
+  \item Time-domain expressions for reflected $E_r,H_r$ and transmitted $E_t,H_t$.
+  \item Average power density in the dielectric medium.
+\end{enumerate}
+
+\subsection*{Solution}
+\paragraph{1. Polarization and incidence}
+$E$ along $\hat y$ $\Rightarrow$ perpendicular (s-) polarization.  
+Wavevector $\mathbf{k}=(3,0,4)$ has $\sin\theta_i=3/5\Rightarrow \theta_i=36.87^\circ$.  
+Snell: $\sin\theta_t=\sin\theta_i/\sqrt{4}=0.3\Rightarrow \theta_t=17.46^\circ$.
+
+\paragraph{2. Coefficients}
+\[
+\eta_1=377,\quad\eta_2=188.5,\quad
+\Gamma_\perp = \frac{\eta_2\cos\theta_i - \eta_1\cos\theta_t}{\eta_2\cos\theta_i + \eta_1\cos\theta_t}\approx -0.409,
+\]
+\[
+\tau_\perp = 1 + \Gamma_\perp \approx 0.591.
+\]
+
+\paragraph{3. Fields}
+Reflected:
+\[
+E_r = \hat y\,(20\Gamma_\perp)\cos(\omega t - 3x + 4z),
+\quad
+H_r = \hat x\,\frac{20\Gamma_\perp}{377}\cos\theta_i\cos(\omega t - 3x + 4z).
+\]
+Transmitted:
+\[
+E_t = \hat y\,(20\tau_\perp)\cos(\omega t - 3x - k_{z2} z),
+\quad
+H_t = -\hat x\,\frac{20\tau_\perp}{188.5}\cos\theta_t\cos(\omega t - 3x - k_{z2} z).
+\]
+
+\paragraph{4. Power}
+\[
+S_{t,\mathrm{av}}
+= \frac{(20\tau_\perp)^2}{2\cdot188.5}\cos\theta_t
+\approx 0.354\ \mathrm{W/m^2}.
+\]
+
+\section*{Problem 8.30}
+\textbf{Statement:} Repeat Problem 8.29 for parallel (p-) polarization with incident
+\[
+\tilde H_i = \hat y\,2\times10^{-2}\,e^{-j(8x + 6z)}\ \mathrm{A/m},
+\]
+dielectric $\varepsilon_r=9$.
+
+\subsection*{Solution}
+\paragraph{1. Angle}
+$\sin\theta_i=8/10=0.8\Rightarrow \theta_i=53.13^\circ$,  
+$\sin\theta_t=0.8/3=0.2667\Rightarrow \theta_t=15.47^\circ$.
+
+\paragraph{2. Coefficients}
+\[
+\eta_1=377,\quad\eta_2=125.7,\quad
+\Gamma_\parallel=\frac{\eta_2\cos\theta_t - \eta_1\cos\theta_i}{\eta_2\cos\theta_t + \eta_1\cos\theta_i}\approx -0.304,
+\]
+\[
+\tau_\parallel = \frac{2\eta_2\cos\theta_i}{\eta_2\cos\theta_t + \eta_1\cos\theta_i}\approx 0.435.
+\]
+
+\paragraph{3. Fields}
+Reflected:
+\[
+H_r = \hat y\,(2\times10^{-2}\Gamma_\parallel)\cos(\omega t - 8x + 6z),
+\quad
+E_r = \hat p\,\eta_1\,H_r,
+\]
+Transmitted:
+\[
+H_t = \hat y\,(2\times10^{-2}\tau_\parallel)\cos(\omega t - 8x - k_{z2} z),
+\quad
+E_t = \hat p\,\eta_2\,H_t.
+\]
+
+\paragraph{4. Power}
+\[
+S_{t,\mathrm{av}}
+= \frac{|H_t|^2}{2/\eta_2}\cos\theta_t
+\approx 8.6\times10^{-4}\ \mathrm{W/m^2}.
+\]

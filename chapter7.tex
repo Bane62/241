@@ -1,0 +1,770 @@
+\section*{Problems 7.1--7.5}
+\begin{enumerate}
+
+\item[7.1] \textbf{Given:} 
+\[H(z,t)=\hat z\,30\cos\bigl(10^8 t-0.5\,y\bigr)\quad(\mathrm{mA/m}).\]
+\textbf{Steps:}
+\begin{enumerate}[(a)]
+  \item **Convert to phasor form.**  Write
+  \[H(z,t)=\Re\{\tilde H(y)\,e^{j\omega t}\},\]
+  so that
+  \[\tilde H(y)=\hat z\,30\times10^{-3}\,e^{-j0.5y}\quad(\mathrm{A/m}),\]
+  and identify
+  \(\omega=10^8\,\mathrm{rad/s},\;\beta=0.5\,\mathrm{rad/m}.\)
+
+  \item **Direction of propagation.**  The phase term is
+  \(\omega t - \beta y\), so the wave travels in the $+y$ direction.
+
+  \item **Phase velocity.**  
+  \[u_p=\frac{\omega}{\beta}=\frac{10^8}{0.5}=2.0\times10^8\,\mathrm{m/s}.\]
+
+  \item **Wavelength.**  
+  \[\lambda=\frac{2\pi}{\beta}=\frac{2\pi}{0.5}=4\pi\approx12.57\,\mathrm{m}.\]
+
+  \item **Relative permittivity.**  In a nonmagnetic medium,
+  \[u_p=\frac{c}{\sqrt{\epsilon_r}}\;\;\Longrightarrow\;
+    \epsilon_r=\Bigl(\frac{c}{u_p}\Bigr)^2
+    =\Bigl(\frac{3\times10^8}{2.0\times10^8}\Bigr)^2=2.25.\]
+
+  \item **Electric field phasor.**  For a TEM wave,
+  \[\tilde E = \eta\,\tilde H \times \hat k,\]
+  where $\hat k=+\hat y$ and $\eta=\eta_0/\sqrt{\epsilon_r}=377/1.5\approx251.3\,\Omega$.  Thus
+  \[
+    \tilde E(y)
+    =\eta\bigl(\hat z\times\hat y\bigr)(0.03)e^{-j0.5y}
+    =-\hat x\,(251.3\times0.03)e^{-j0.5y}
+    =-\hat x\,7.54\,e^{-j0.5y}\quad(\mathrm{V/m}).
+  \]
+  Converting back to time domain,
+  \[
+    E(z,t)=\Re\{\tilde E\,e^{j\omega t}\}
+    =-\hat x\,7.54\,\cos\bigl(10^8t-0.5y\bigr)\quad(\mathrm{V/m}).\]
+\end{enumerate}
+
+\item[7.2] \textbf{Design a 1 GHz plane wave in a lossless, nonmagnetic medium ($\epsilon_r=9$) with $E\parallel\hat x$, $E_0=6$ V/m, and $E(0,0.02)=4$ V/m.}
+\begin{enumerate}[(a)]
+  \item **Compute $\omega$, $u_p$, $\beta$, and $\lambda$.**  
+  \[
+    \omega=2\pi f=2\pi\times10^9~\mathrm{rad/s},\quad
+    u_p=\frac{c}{\sqrt{\epsilon_r}}=\frac{3\times10^8}{3}=1.0\times10^8~\mathrm{m/s},
+  \]
+  \[
+    \beta=\frac{\omega}{u_p}=\frac{2\pi\times10^9}{1.0\times10^8}=20\pi~\mathrm{rad/m},\quad
+    \lambda=\frac{2\pi}{\beta}=0.10~\mathrm{m}.
+  \]
+
+  \item **Determine phase offset $\phi_0$.**  At $y=0.02$ m and $t=0$, the instantaneous field is
+  \[
+    E(0,0.02,0)=E_0\cos(-\beta\cdot0.02+\phi_0)=4~\mathrm{V/m}.
+  \]
+  Substitute $E_0=6$ V/m, $\beta=20\pi$ rad/m:
+  \[
+    6\cos(-20\pi\times0.02+\phi_0)=4
+    \quad\Longrightarrow\quad
+    \cos(\phi_0-0.4\pi)=\frac{4}{6}=\frac{2}{3}.
+  \]
+  Therefore
+  \[
+    \phi_0 = \cos^{-1}\bigl(\tfrac23\bigr) + 0.4\pi \approx 0.8411 + 0.4\pi~\mathrm{rad}.
+  \]
+
+  \item **Write $E(y,t)$ and $H(y,t)$.**  The electric field is
+  \[
+    E(y,t)=\hat x\,6\cos\bigl(2\pi\times10^9t-20\pi y+\phi_0\bigr)~\mathrm{V/m}.
+  \]
+  The intrinsic impedance is $\eta=\eta_0/3\approx125.7~\Omega$, and
+  \[
+    \tilde H = \frac{1}{\eta}\,\hat k\times\tilde E,\quad \hat k=+\hat y.
+  \]
+  Since $\hat y\times\hat x=-\hat z$,
+  \[
+    H(y,t)=-\hat z\frac{6}{125.7}\cos\bigl(2\pi\times10^9t-20\pi y+\phi_0\bigr)
+    \approx -\hat z\,0.0477\cos(\dots)~\mathrm{A/m}.
+  \]
+\end{enumerate}
+
+\item[7.3] \textbf{Given:} Phasor $\tilde E(y,z)=\hat y\,10e^{j0.2z}$ V/m, $u_p=1.5\times10^8$ m/s, $\mu_r=2.4$.  
+\begin{enumerate}[(a)]
+  \item **Compute $\beta$, $\lambda$, and $f$.**  
+  \[
+    \beta=0.2~\mathrm{rad/m},\quad \lambda=\frac{2\pi}{\beta}=31.42~\mathrm{m},\quad
+    \omega=\beta u_p=0.2\times1.5\times10^8=3.0\times10^7~\mathrm{rad/s},
+  \]
+  \[
+    f=\frac{\omega}{2\pi}\approx4.78~\mathrm{MHz}.
+  \]
+
+  \item **Determine $\epsilon_r$ and $\eta$.**  
+  \[
+    u_p=\frac{c}{\sqrt{\mu_r\epsilon_r}}\Longrightarrow\epsilon_r=\Bigl(\frac{c}{u_p\sqrt{\mu_r}}\Bigr)^2
+    \approx1.6667,
+  \]
+  \[
+    \eta=\eta_0\sqrt{\frac{\mu_r}{\epsilon_r}}
+    =377\sqrt{\frac{2.4}{1.6667}}\approx452.4~\Omega.
+  \]
+
+  \item **Find $H(z,t)$.**  
+  Using $\tilde H=(1/\eta)\,\hat k\times\tilde E$, $\hat k=+\hat z$, and $\hat z\times\hat y=-\hat x$:
+  \[
+    \tilde H(z)=\hat x\frac{10}{452.4}e^{j0.2z}=\hat x\,0.0221\,e^{j0.2z}\quad(\mathrm{A/m}),
+  \]
+  therefore
+  \[
+    H(z,t)=\hat x\,0.0221\cos\bigl(3\times10^7t+0.2z\bigr)\mathrm{\,A/m}.
+  \]
+\end{enumerate}
+
+\item[7.4] \textbf{Given:}
+\[E(x,t)=\hat y\,3\sin\bigl(\pi\times10^7t-0.2\pi x\bigr)
++\hat z\,4\cos\bigl(\pi\times10^7t-0.2\pi x\bigr)\mathrm{\,V/m}.\]
+\begin{enumerate}[(a)]
+  \item **Find $\omega$, $\beta$, and $\lambda$.**
+  \[
+    \omega=\pi\times10^7~\mathrm{rad/s},\quad
+    \beta=0.2\pi~\mathrm{rad/m},\quad
+    \lambda=\frac{2\pi}{0.2\pi}=10~\mathrm{m}.
+  \]
+
+  \item **Phase velocity and permittivity.**  
+  \[
+    u_p=\frac{\omega}{\beta}=\frac{\pi\times10^7}{0.2\pi}=5\times10^7~\mathrm{m/s},\quad
+    \epsilon_r=\Bigl(\frac{c}{u_p}\Bigr)^2=36.
+  \]
+
+  \item **Compute magnetic phasor.**  
+  The phasor for $E$ is
+  \[\tilde E=\hat y\,3e^{-j\pi/2}+\hat z\,4e^{j0},\]
+  and $\eta=\eta_0/6\approx62.83~\Omega$.  Using $\tilde H=(1/\eta)\,\hat k\times\tilde E$ with $\hat k=+\hat x$,
+  \[
+    \hat x\times\hat y=\hat z,\quad
+    \hat x\times\hat z=-\hat y,
+  \]
+  so
+  \[
+    \tilde H=\frac{1}{62.83}\bigl(3e^{-j\pi/2}\hat z -4e^{j0}\hat y\bigr).
+  \]
+\end{enumerate}
+
+\item[7.5] \textbf{Given wavelengths in air and soil:} $\lambda_{\rm air}=0.60$ m, $\lambda_{\rm soil}=0.20$ m.  
+\textbf{Solution:}
+In a low-loss dielectric,
+\[
+  \lambda=\frac{\lambda_0}{\sqrt{\epsilon_r}}
+  \quad\Longrightarrow\quad
+  \epsilon_r=\Bigl(\frac{\lambda_{\rm air}}{\lambda_{\rm soil}}\Bigr)^2
+  =\Bigl(\frac{0.60}{0.20}\Bigr)^2=9.
+\]
+
+\end{enumerate}
+
+\section*{Problems 7.6--7.10}
+\begin{enumerate}
+
+\item[7.6] \textbf{Given:}
+\[E(z,t)=\hat y\,20\cos\bigl(6\pi\times10^9t - kz\bigr)\ \mathrm{V/m},\]
+in a lossless, nonmagnetic dielectric with $\epsilon_r=2.56$.  
+\\
+\textbf{Steps:}
+\begin{enumerate}[(a)]
+  \item Identify angular frequency from argument: $\omega=6\pi\times10^9\,$rad/s.  Thus
+  \[f=\frac{\omega}{2\pi}=3\times10^9~\mathrm{Hz}=3~\mathrm{GHz}.\]
+  \item Phase velocity:
+  \[u_p=\frac{c}{\sqrt{\epsilon_r}}=\frac{3\times10^8}{\sqrt{2.56}}=1.875\times10^8~\mathrm{m/s}.\]
+  \item Wavelength:
+  \[\lambda=\frac{u_p}{f}=\frac{1.875\times10^8}{3\times10^9}=0.0625~\mathrm m=6.25~\mathrm{cm}.\]
+  \item Wavenumber:
+  \[k=\frac{2\pi}{\lambda}=\frac{2\pi}{0.0625}\approx100.53~\mathrm{rad/m}.\]
+  \item Intrinsic impedance:
+  \[\eta=\frac{\eta_0}{\sqrt{\epsilon_r}}=\frac{377}{1.6}\approx235.6~\Omega.\]
+  \item Magnetic field by $\mathbf H=(1/\eta)\hat k\times\mathbf E$ with $\hat k=+\hat z$ and $\hat z\times\hat y=-\hat x$:
+  \[
+    H(z,t)= -\hat x\frac{20}{235.6}\cos\bigl(6\pi\times10^9t-100.53z\bigr)\approx -\hat x\,0.0849\cos(\dots)~\mathrm{A/m}.
+  \]
+\end{enumerate}
+
+\item[7.7] \textbf{Given:}
+\[H(z,t)=\hat x\,60\cos\bigl(2\pi\times10^7t+0.1\pi y\bigr)
++\hat z\,30\cos\bigl(2\pi\times10^7t+0.1\pi y\bigr)\ \mathrm{mA/m},\]
+in a nonmagnetic lossless medium.  
+\\
+\textbf{Steps:}
+\begin{enumerate}[(a)]
+  \item Convert to A/m: $H_x=0.06,\;H_z=0.03$ A/m.  Identify $\omega=2\pi\times10^7$ rad/s, $\beta=0.1\pi$ rad/m.
+  \item Wavelength: $\lambda=2\pi/\beta=20$ m.  
+  \item Phase velocity: $u_p=\omega/\beta=2\times10^8$ m/s.  
+  \item Relative permittivity: $u_p=c/\sqrt{\epsilon_r}\implies\epsilon_r=(c/u_p)^2=2.25$.  
+  \item Propagation is along $-y$ (argument $+\beta y$).  Let $\hat k=-\hat y$.  
+  \item Electric field via $\mathbf E=-\eta\,\hat k\times\mathbf H$, $\eta=377/\sqrt{2.25}=251.3\,\Omega$, and
+  \[
+    -\hat k\times(0.06\hat x+0.03\hat z)
+    =-(-\hat y)\times(0.06\hat x+0.03\hat z)
+    =\hat y\times(0.06\hat x+0.03\hat z)
+    =0.06(\hat y\times\hat x)+0.03(\hat y\times\hat z)
+    =-0.06\hat z+0.03\hat x.
+  \]
+  Hence
+  \[
+    E(y,t)=\bigl(0.03\times251.3\,\hat x -0.06\times251.3\,\hat z\bigr)
+    \cos(2\pi\times10^7t+0.1\pi y)
+    \approx\hat x\,7.54\cos(\dots)-\hat z\,15.08\cos(\dots)~\mathrm{V/m}.
+  \]
+\end{enumerate}
+
+\item[7.8] \textbf{Given:} A 60 MHz plane wave in dry soil ($\epsilon_r=4$) propagating in $-x$, $E\parallel\hat z$, with
+peak $H_0=10$ mA/m and $H(-0.75,0)=7$ mA/m.  
+\\
+\textbf{Steps:}
+\begin{enumerate}[(a)]
+  \item $f=60\times10^6$ Hz, $\omega=2\pi f=120\pi\times10^6$ rad/s.  
+  \item Phase velocity: $u_p=c/2=1.5\times10^8$ m/s.  
+  \item $k=\omega/u_p=0.8\pi$ rad/m.  
+  \item Intrinsic impedance: $\eta=377/2=188.5\,\Omega$.  
+  \item Write $H(x,t)=0.01\cos(\omega t - kx+\phi)$ A/m.  At $t=0,x=-0.75$,  $0.007=0.01\cos(0.75k+\phi)=0.01\cos(0.6\pi+\phi)$, so
+  \[\cos(0.6\pi+\phi)=0.7\implies\phi=\arccos(0.7)-0.6\pi\approx-1.089~\mathrm{rad}.\]
+  \item $E_0=\eta H_0=188.5\times0.01=1.885$ V/m.  
+  \item Instantaneous fields:
+  \[
+    H(x,t)=0.01\cos\bigl(120\pi\times10^6t-0.8\pi x-1.089\bigr)\,\hat y,\]
+  \[
+    E(x,t)=1.885\cos\bigl(120\pi\times10^6t-0.8\pi x-1.089\bigr)\,\hat z~\mathrm{V/m}.
+  \]
+\end{enumerate}
+
+\item[7.9] \textbf{Given:} RHC-polarized wave magnitude 2 V/m in free space, $\lambda=0.06$ m, propagating in $-z$.  
+\\
+\textbf{Solution:}
+One time-domain representation that gives right-handed circular polarization (looking toward $-z$) is
+\[
+  E(z,t)=\hat x\sqrt2\cos(\omega t + kz)-\hat y\sqrt2\sin(\omega t + kz),
+\]
+since $E_x^2+E_y^2=2+2=4$ and the phase of $E_y$ lags $E_x$ by $90^\circ$ for RHC.
+
+\item[7.10] \textbf{Given:}
+\[E(z,t)=\hat x\,a_x\cos(\omega t - kz)+\hat y\,a_y\cos(\omega t - kz+\delta).
+\]
+Define
+\[\tan2\gamma=\frac{2a_xa_y\cos\delta}{a_x^2-a_y^2},\quad
+  \chi=\tfrac12\arcsin\frac{2a_xa_y\sin\delta}{a_x^2+a_y^2}.\]
+\\
+\textbf{Results:}
+\begin{itemize}
+  \item (a) $a_x=3,a_y=4,\delta=0$: linear at $\gamma=\arctan(4/3)\approx53.1^\circ$, $\chi=0$.  
+  \item (b) $a_x=3,a_y=4,\delta=\pi$: linear at $\gamma=\arctan(-4/3)\approx-53.1^\circ$, $\chi=0$.  
+  \item (c) $a_x=3,a_y=3,\delta=\pi/4$: elliptical with $\gamma=45^\circ$, $\chi=22.5^\circ$.  
+  \item (d) $a_x=3,a_y=4,\delta=-3\pi/4$: elliptical with $\gamma\approx33.9^\circ$, $\chi\approx-21.4^\circ$.  
+\end{itemize}
+
+\end{enumerate}
+
+\section*{Problems 7.11--7.15}
+\begin{enumerate}
+
+\item[7.11] \textbf{Given:} Phasor
+\[\tilde E(z)=\bigl(\hat x + j\hat y\bigr)30e^{-j(\pi/6)z}\quad(\mathrm{V/m}),\]
+find $E(z,t)=\Re\{\tilde E\,e^{j\omega t}\}$ at $z=0$ for $t=0,\,5\,$ns, and $10\,$ns.
+\\
+\textbf{Solution:}
+\begin{enumerate}[(a)]
+  \item Relate $k$ and $\omega$: In free space $k=\pi/6$ and $k=\omega/c$, so
+  \[\omega = k\,c = \tfrac{\pi}{6}\times3\times10^8 = 1.5708\times10^8~\mathrm{rad/s}.\]
+
+  \item Write $E(0,t)$: At $z=0$,
+  \[E(0,t)=30\Re\{(\hat x+j\hat y)e^{j\omega t}\}
+    =30\bigl[\hat x\cos\omega t - \hat y\sin\omega t\bigr].\]
+
+  \item At $t=0$ ($\omega t=0$):
+  \[E(0,0)=30(\hat x\cdot1 - \hat y\cdot0)=30\hat x~\mathrm{V/m}.\]
+  Magnitude $30$ V/m, direction $+\hat x$.
+
+  \item At $t=5\,$ns ($\omega t=1.5708\times10^8\cdot5\times10^{-9}=0.7854$ rad):
+  \[E(0,5{\rm ns})=30[\hat x\cos0.7854 - \hat y\sin0.7854]
+    =30\tfrac{\sqrt2}{2}(\hat x-\hat y)
+    \approx21.21\tfrac{\hat x-\hat y}{\sqrt2}~\mathrm{V/m}.\]
+  Magnitude $30$ V/m, direction $-45^\circ$ from $+\hat x$.
+
+  \item At $t=10\,$ns ($\omega t=2\times0.7854=1.5708$ rad):
+  \[E(0,10{\rm ns})=30[\hat x\cos1.5708 - \hat y\sin1.5708]
+    =30(0\hat x -1\hat y)=-30\hat y~\mathrm{V/m}.\]
+  Magnitude $30$ V/m, direction $-\hat y$.
+\end{enumerate}
+
+\item[7.12] \textbf{Given:} Phasor
+\[\tilde H(x)=30(\hat y+j\hat z)e^{-j(\pi/6)x}\quad(\mathrm{mA/m}),\]
+in a dielectric $\epsilon_r=36$.  Find instantaneous $E(0,t)$ at $x=0$ for $t=0$ and $5$ ns.
+\\
+\textbf{Solution:}
+\begin{enumerate}[(a)]
+  \item Identify $k=\pi/6$ rad/m, $\omega=k\,v_p$, with $v_p=c/6=5\times10^7$ m/s, so
+  \[\omega=\tfrac{\pi}{6}\times5\times10^7=2.618\times10^7~\mathrm{rad/s}.\]
+
+  \item Convert $H$ to A/m: $\tilde H=0.03(\hat y+j\hat z)e^{-j(\pi/6)x}$.  Intrinsic impedance
+  \[\eta=\eta_0/6=\tfrac{377}{6}\approx62.83~\Omega.\]
+
+  \item Phasor $E$: $\tilde E=\eta\,\hat k\times\tilde H$, with $\hat k=+\hat x$.  Since
+  \[\hat x\times(\hat y+j\hat z)=\hat z - j\hat y,\]
+  \[\tilde E(0)=62.83\cdot0.03\,[(\hat z - j\hat y)]
+    =1.8849\,\bigl(\hat z - j\hat y\bigr).\]
+
+  \item Time domain:
+  \[E(0,t)=\Re\{\tilde E\,e^{j\omega t}\}
+    =1.8849\bigl[\hat z\cos\omega t + \hat y\sin\omega t\bigr]~\mathrm{V/m}.\]
+
+  \item At $t=0$: $E(0,0)=1.8849\hat z$ V/m (magnitude 1.8849, direction $+\hat z$).
+
+  \item At $t=5$ ns ($\omega t=2.618\times10^7\cdot5\times10^{-9}=0.1309$ rad):
+  \[E(0,5{\rm ns})=1.8849[\hat z\cos0.1309+\hat y\sin0.1309]
+    \approx1.8849\tfrac{\hat y+\hat z}{\sqrt2}\ ~\mathrm{V/m},\]
+  magnitude 1.8849, direction $+45^\circ$ in $y$–$z$ plane.
+\end{enumerate}
+
+\item[7.13] \textbf{Show:} Linear wave
+\[\tilde E = a_x\hat x\,e^{-jkz}\]
+can be expressed as sum of RHC and LHC components:
+\[\tilde E_R=a_R(\hat x - j\hat y)e^{-jkz},\quad
+  \tilde E_L=a_L(\hat x + j\hat y)e^{-jkz}.\]
+\\
+\textbf{Solution:} Sum:
+\[\tilde E_R+\tilde E_L=(a_R+a_L)\hat x\,e^{-jkz}+j(a_L-a_R)\hat y\,e^{-jkz}.\]
+To match $a_x\hat x e^{-jkz}$ (no $\hat y$ term):
+\[a_L-a_R=0,\quad a_R+a_L=a_x\ \Longrightarrow\ a_R=a_L=\tfrac{a_x}{2}.\]
+
+\item[7.14] \textbf{Given:}
+\[E(z,t)=-10\hat x\sin(\omega t-kz-60^\circ)+30\hat y\cos(\omega t-kz)\ \mathrm{(V/m)}.\]
+Find orientation $\gamma$, ellipticity $\chi$, and sense of rotation.
+\\
+\textbf{Steps:}
+\begin{enumerate}[(a)]
+  \item Convert $E_x$ to cosine form:
+  \[-10\sin(\theta-60^\circ)=10\cos(\theta+30^\circ),\] so $a_x=10,\phi_x=30^\circ$, $a_y=30,\phi_y=0^\circ$, $\delta=\phi_y-\phi_x=-30^\circ$.
+
+  \item Ellipticity angle:
+  \[\chi=\tfrac12\arcsin\frac{2a_xa_y\sin\delta}{a_x^2+a_y^2}
+    =\tfrac12\arcsin\frac{2\cdot10\cdot30\sin(-30^\circ)}{100+900}
+    =-8.73^\circ.\]
+
+  \item Orientation angle:
+  \[\tan2\gamma=\frac{2a_xa_y\cos\delta}{a_x^2-a_y^2}
+    =\frac{600\cos(-30^\circ)}{-800}=-0.6495
+    \implies2\gamma=-33.02^\circ\implies\gamma=73.5^\circ.\]
+
+  \item Sense: $\delta<0$ implies right-hand circular sense.
+
+  \item Answer: $\gamma=73.5^\circ$, $\chi=-8.73^\circ$, RHC.
+\end{enumerate}
+
+\item[7.15] \textbf{Compare polarization for:}
+\[
+  (a)~E_1=2\hat x\cos(\omega t-kz)+2\hat y\sin(\omega t-kz),\quad
+       E_2=2\hat x\cos(\omega t+kz)+2\hat y\sin(\omega t+kz),\\
+  (b)~E_1=2\hat x\cos(\omega t-kz)-2\hat y\sin(\omega t-kz),\quad
+       E_2=2\hat x\cos(\omega t+kz)-2\hat y\sin(\omega t+kz).
+\]
+\\
+\textbf{Solution:}
+In each case $|a_x|=|a_y|$ and $\delta=+90^\circ$ in (a), $-90^\circ$ in (b).
+\begin{itemize}
+  \item (a) $\delta=+90^\circ\implies$ left-hand circular (LHC) for both $E_1$ and $E_2$.
+  \item (b) $\delta=-90^\circ\implies$ right-hand circular (RHC) for both.
+\end{itemize}
+
+\end{enumerate}
+
+\section*{Problems 7.16--7.20}
+\begin{enumerate}
+
+\item[7.16] \textbf{Given:} At $z=0$, the electric field is
+\[E_x=\sin(\omega t),\quad E_y=2\cos(\omega t).\]
+\\
+\textbf{Steps:}
+\begin{enumerate}[(a)]
+  \item \emph{Parametric form:} Let $\phi=\omega t$.  Then
+  \[E_x(\phi)=\sin\phi,\quad E_y(\phi)=2\cos\phi.\]
+  \item \emph{Eliminate $\phi$:}
+  \[\frac{E_x^2}{1^2}+\frac{E_y^2}{2^2}=\sin^2\phi+\cos^2\phi=1,\]
+  an ellipse with semi-axes $1$ (along $x$) and $2$ (along $y$).
+  \item \emph{Sense of rotation:} At $t=0$, $(E_x,E_y)=(0,2)$; as $t$ increases, $E_x>0$ and $E_y$ decreases, so the tip moves clockwise when viewed looking toward $+z$.  Thus the wave is elliptically polarized with major axis along $y$ and rotates right-to-left (clockwise).
+\end{enumerate}
+
+\item[7.17] \textbf{Compute for each material:}
+\\
+\textbf{(a) Glass:} $\mu_r=1$, $\epsilon_r=5$, $\sigma=10^{-12}$ S/m, $f=10$ GHz.
+\begin{enumerate}[(1)]
+  \item $\epsilon'=5\epsilon_0=5\times8.854\times10^{-12}=4.427\times10^{-11}$ F/m.
+  \item $\omega=2\pi\times10^{10}$ rad/s.
+  \item Loss tangent: $\frac{\epsilon''}{\epsilon'}=\frac{\sigma}{\omega\epsilon'}=10^{-12}/(2\pi\times10^{10}\times4.427\times10^{-11})\approx3.6\times10^{-13}\ll10^{-2}$ $\implies$ low-loss dielectric.
+  \item $\alpha\approx\frac{\sigma}{2}\sqrt{\frac{\mu_0}{\epsilon'}}=\tfrac{10^{-12}}2\sqrt{\tfrac{4\pi\times10^{-7}}{4.427\times10^{-11}}}\approx8.42\times10^{-11}$ Np/m.
+  \item $\beta=\omega\sqrt{\mu_0\epsilon'}=2\pi\times10^{10}\sqrt{4\pi\times10^{-7}\times4.427\times10^{-11}}\approx468.3$ rad/m.
+  \item $\lambda=2\pi/\beta\approx0.0134$ m, \quad $u_p=\omega/\beta\approx1.34\times10^8$ m/s.
+  \item $\eta_c=\sqrt{\mu_0/\epsilon'}\approx168.5\ \Omega$.
+\end{enumerate}
+
+\textbf{(b) Animal tissue:} $\mu_r=1$, $\epsilon_r=12$, $\sigma=0.3$ S/m, $f=100$ MHz.
+\begin{enumerate}[(1)]
+  \item $\epsilon'=12\epsilon_0=1.0625\times10^{-10}$ F/m.
+  \item $\omega=2\pi\times10^8$ rad/s.
+  \item $\epsilon''/\epsilon'=0.3/(2\pi\times10^8\times1.0625\times10^{-10})\approx4.5\in[10^{-2},10^{2}]\implies$ quasi-conductor.
+  \item Approximate $\alpha\approx\sqrt{\tfrac{\pi f\mu_0\sigma}{2}}\approx16.3$ Np/m, \quad $\beta\approx \omega\sqrt{\mu_0\epsilon'/2}\approx7.26$ rad/m.
+  \item $\lambda=2\pi/\beta\approx0.866$ m, \quad $u_p=\omega/\beta\approx8.66\times10^7$ m/s.
+  \item $\eta_c\approx|\eta_0|/\sqrt{\epsilon_r}\angle+\tfrac12\arctan(\epsilon''/\epsilon')\approx269\angle+13.3^\circ\ \Omega$.
+\end{enumerate}
+
+\textbf{(c) Wood:} $\mu_r=1$, $\epsilon_r=3$, $\sigma=10^{-4}$ S/m, $f=1$ kHz.
+\begin{enumerate}[(1)]
+  \item $\epsilon'=3\epsilon_0=2.656\times10^{-11}$ F/m.
+  \item $\omega=2\pi\times10^3$ rad/s.
+  \item $\epsilon''/\epsilon'=10^{-4}/(2\pi\times10^3\times2.656\times10^{-11})\approx6.0\times10^3\gg10^2\implies$ good conductor.
+  \item $\alpha=\beta\approx\sqrt{\pi f\mu_0\sigma}=6.28\times10^{-4}$ Np/m.
+  \item $\lambda=2\pi/\beta\approx1.0\times10^4$ m, \quad $u_p=\omega/\beta\approx1.0\times10^7$ m/s.
+  \item $\eta_c=(1+j)\sqrt{\frac{\omega\mu_0}{2\sigma}}\approx(1+j)6.28\ \Omega$ (|$\eta_c$|≈8.89 Ω, phase +45°).
+\end{enumerate}
+
+\item[7.18] \textbf{Dry soil:} $\mu_r=1$, $\epsilon_r=2.5$, $\sigma=10^{-4}$ S/m.  Compute at several frequencies:
+\\
+\textbf{General:} $\epsilon'=2.5\epsilon_0$, $\omega=2\pi f$, $\epsilon''/\epsilon'=\sigma/(\omega\epsilon')$.
+\\
+\begin{enumerate}[(a)]
+  \item $f=60$ Hz: $\epsilon''/\epsilon'\approx1.2\times10^4\gg10^2$ (good conductor).  
+    $\alpha=\beta\approx\sqrt{\pi f\mu_0\sigma}=4.87\times10^{-4}$ Np/m,
+    $\lambda=2\pi/\beta=1.29\times10^4$ m,
+    $u_p=\omega/\beta=7.74\times10^5$ m/s,
+    $\eta_c=(1+j)4.87\ \Omega$.
+  \item $f=1$ kHz: $\epsilon''/\epsilon'\approx720$ (good conductor).  
+    $\alpha=1.98\times10^{-2}$ Np/m,
+    $\lambda=317$ m,
+    $u_p=3.17\times10^5$ m/s,
+    $\eta_c=(1+j)198\ \Omega$.
+  \item $f=1$ MHz: $\epsilon''/\epsilon'\approx0.72$ (quasi-conductor).  
+    $\alpha=0.036$ Np/m,
+    $\beta=0.111$ rad/m,
+    $\lambda=56.6$ m,
+    $u_p=5.66\times10^7$ m/s,
+    $\eta_c=210\angle{-18^\circ}\ \Omega$.
+  \item $f=1$ GHz: $\epsilon''/\epsilon'\approx7.2\times10^{-4}\ll10^{-2}$ (low-loss dielectric).  
+    $\alpha\approx\tfrac{\sigma}{2}\sqrt{\tfrac{\mu_0}{\epsilon'}}=0.0119$ Np/m,
+    $\beta=\omega\sqrt{\mu_0\epsilon'}=33.1$ rad/m,
+    $\lambda=0.190$ m,
+    $u_p=\omega/\beta=1.90\times10^8$ m/s,
+    $\eta_c=\sqrt{\mu_0/\epsilon'}=238.3\ \Omega$.
+\end{enumerate}
+
+\item[7.19] \textbf{Given:} $\epsilon_r=9$, $\mu_r=1$, $\sigma=0.1$ S/m, $f=100$ MHz.
+\\
+\textbf{Steps:}
+\begin{enumerate}[(a)]
+  \item $\epsilon'=9\epsilon_0=7.965\times10^{-11}$ F/m, $\omega=2\pi\times10^8$ rad/s.
+  \item $\epsilon''/\epsilon'=\sigma/(\omega\epsilon')=0.1/(2\pi\times10^8\times7.965\times10^{-11})\approx2.00$.
+  \item Phase of impedance $\theta=\tfrac12\arctan(\epsilon''/\epsilon')=\tfrac12\arctan2.00=31.72^\circ$.  Thus $H$ lags $E$ by $31.72^\circ$.
+\end{enumerate}
+
+\item[7.20] \textbf{Seawater:} $\mu_r=1$, $\epsilon_r=80$, $\sigma=4$ S/m.  Skin depth formula:
+\[\delta_s=\frac{1}{\sqrt{\pi f \mu_0 \sigma}}.\]
+\\
+\begin{enumerate}[(a)]
+  \item At $f=1$ kHz:  
+    \[\delta_s=1/\sqrt{\pi(10^3)(4\pi\times10^{-7})(4)}\approx7.96~\mathrm m.\]
+  \item At $f=10$ GHz:
+    \[\delta_s=1/\sqrt{\pi(10^{10})(4\pi\times10^{-7})(4)}\approx2.52\times10^{-3}~\mathrm m.\]
+  \item Thus $\delta_s\propto f^{-1/2}$, decreasing from about 8 m at 1 kHz to 2.5 mm at 10 GHz.
+\end{enumerate}
+
+\end{enumerate}
+
+\section*{Problems 7.21--7.25}
+\begin{enumerate}
+
+\item[7.21] \textbf{Given:} A 3 GHz plane wave $E_0=10$ V/m incident on wet soil ($\epsilon_r=9$, $\sigma=5\times10^{-4}$ S/m), ignore reflection.  Find depth $z$ where $E=1$ mV/m.
+\\
+\textbf{Steps:}
+\begin{enumerate}[(a)]
+  \item Compute permittivity and angular frequency:
+  \[\varepsilon=9\epsilon_0=7.965\times10^{-11}\mathrm{F/m},\quad
+    \omega=2\pi\times3\times10^9=6\pi\times10^9~\mathrm{rad/s}.\]
+
+  \item Low-loss check: $\sigma/(\omega\varepsilon)\approx5\times10^{-4}/(6\pi\times10^9\times7.965\times10^{-11})\approx2.65\times10^{-4}\ll1$.  Use
+  \[\alpha\approx\tfrac{\sigma}{2}\sqrt{\frac{\mu_0}{\varepsilon}}.\]
+
+  \item Compute $\alpha$:
+  \[\sqrt{\mu_0/\varepsilon}=1.256\times10^2,\quad
+    \alpha=\tfrac{5\times10^{-4}}{2}\times125.6=0.0314~\mathrm{Np/m}.\]
+
+  \item Attenuation: $E(z)=E_0e^{-\alpha z}$.  Set $E/E_0=10^{-4}$:
+  \[e^{-\alpha z}=10^{-4}\implies z=\frac{\ln10^4}{\alpha}=\frac{9.2103}{0.0314}\approx294~\mathrm m.\]
+\end{enumerate}
+
+\item[7.22] \textbf{Given:} A 1 GHz wave $E_0=20$ V/m at water surface ($\epsilon_r=80$, $\sigma=1$ S/m), ignore reflection.  Find depth where $E=1$ µV/m.
+\\
+\textbf{Steps:}
+\begin{enumerate}[(a)]
+  \item Compute $\varepsilon=80\epsilon_0=7.08\times10^{-10}$ F/m, $\omega=2\pi\times10^9$ rad/s.
+
+  \item General $\alpha$:
+  \[\alpha=\omega\sqrt{\tfrac{\mu_0\varepsilon}{2}}\bigl[\sqrt{1+(\tfrac{\sigma}{\omega\varepsilon})^2}-1\bigr]^{1/2}.\]
+  With $\sigma/(\omega\varepsilon)=1/(2\pi\times10^9\times7.08\times10^{-10})\approx0.225$.
+
+  \item Compute intermediate:
+  \[\omega\sqrt{\tfrac{\mu_0\varepsilon}{2}}\approx419~\mathrm{Np/m},\quad
+    \sqrt{1+0.225^2}-1\approx0.0247
+    \implies\alpha=419\sqrt{0.0247}\approx66.2~\mathrm{Np/m}.\]
+
+  \item Depth for $E/E_0=5\times10^{-8}$:
+  \[e^{-\alpha z}=5\times10^{-8}\implies z=\frac{-\ln(5\times10^{-8})}{66.2}\approx0.254~\mathrm m.\]
+\end{enumerate}
+
+\item[7.23] \textbf{Given:} Skin depth $\delta_s=3$ µm at $f=5$ GHz for a good conductor.  Find phase velocity $u_p$.
+\\
+\textbf{Solution:} In good conductor $\alpha\approx\beta\approx1/\delta_s$.  Then
+\[u_p=\omega/\beta\approx2\pi\times5\times10^9\times3\times10^{-6}=9.42\times10^4~\mathrm{m/s}.\]
+
+\item[7.24] \textbf{Given:} At 1 MHz, $\eta=28.1\angle45^\circ$ Ω, skin depth $\delta_s=2$ m.  Find $\sigma$, $\lambda$, $u_p$.
+\\
+\textbf{Steps:}
+\begin{enumerate}[(a)]
+  \item Good conductor: $\alpha\approx\beta=1/\delta_s=0.5$ Np/m.
+
+  \item Conductivity from $\alpha=\sqrt{\pi f\mu_0\sigma}$:
+  \[\sigma=\frac{\alpha^2}{\pi f\mu_0}=\frac{0.5^2}{\pi(10^6)(4\pi\times10^{-7})}\approx0.0633~\mathrm{S/m}.\]
+
+  \item Wavelength and phase constant: $\beta=0.5$ rad/m, $\lambda=2\pi/\beta=12.57$ m, $u_p=\omega/\beta=2\pi\times10^6/0.5=12.57\times10^6$ m/s.
+\end{enumerate}
+
+\item[7.25] \textbf{Given:}
+\[E(z,t)=\hat z\,25\,e^{-30x}\cos(2\pi\times10^9t-40x)~\mathrm{V/m},\]
+find $H(z,t)$.
+\\
+\textbf{Steps:}
+\begin{enumerate}[(a)]
+  \item Phasor: $\tilde E(x)=\hat z\,25e^{-(30+j40)x}$.  
+  \item Using $\tilde H=(1/\eta_c)\hat k\times\tilde E$, $\hat k=+\hat x$, so $\hat x\times\hat z=-\hat y$:
+  \[\tilde H(x)=-\hat y\frac{25}{\eta_c}e^{-(30+j40)x}.\]
+
+  \item Time domain: Assuming low-loss so $\eta_c\approx|\eta_c|$,
+  \[H(x,t)=\Re\{\tilde H\,e^{j\omega t}\}
+    =-\hat y\frac{25}{|\eta_c|}e^{-30x}\cos(2\pi\times10^9t-40x)~\mathrm{A/m}.\]
+\end{enumerate}
+
+\end{enumerate}
+
+\section*{Problems 7.26--7.30}
+\begin{enumerate}
+
+\item[7.26] \textbf{Given:}
+\[H(z,t)=\hat y\,60e^{-10z}\cos\bigl(2\pi\times10^8t-12z\bigr)~\mathrm{mA/m}.\]
+Find $E(z,t)$ in a nonmagnetic medium.  
+\\
+\textbf{Solution:}
+\begin{enumerate}[(a)]
+  \item Convert $H$ to phasor form:
+  \[H(z,t)=\Re\{\tilde H(z)e^{j\omega t}\},\quad 
+    \tilde H(z)=\hat y\,(60\times10^{-3})e^{-(10+j12)z}~\mathrm{A/m}.\]
+  Here $\omega=2\pi\times10^8$ rad/s, propagation along $+z$ so $\hat k=\hat z$.
+  
+  \item Use $\tilde E=\eta_c\,(\hat k\times\tilde H)$.  Since $\hat z\times\hat y=-\hat x$,
+  \[\tilde E(z)=-\hat x\,\eta_c\,0.06\,e^{-(10+j12)z}.\]
+  Intrinsic impedance $\eta_c=\sqrt{\mu_0/\varepsilon_c}$, but for nonmagnetic low-loss assume $\eta_c\approx\eta_0/\sqrt{\epsilon_r}$ if known.  
+  
+  \item Time-domain field:
+  \[E(z,t)=\Re\{\tilde E\,e^{j\omega t}\}
+    =-\hat x\,\eta_c\,0.06\,e^{-10z}\cos(2\pi\times10^8t-12z+\angle\eta_c).\]
+\end{enumerate}
+
+\item[7.27] \textbf{Heating in microwave oven, at 2 GHz}\smallskip
+\\
+\begin{enumerate}[(a)]
+  \item \emph{Time-average power per unit volume:}
+  $P_{\rm av}=\tfrac12\sigma E_0^2$ (W/m$^3$).  Per mm$^3$, multiply by $10^{-9}$:
+  \[P_{\rm av}^{\mathrm{mm}^3}=\tfrac12\sigma E_0^2\times10^{-9}~\mathrm{W/mm}^3.\]
+  \item For $E_0=4\times10^4$ V/m, $\sigma=1$ S/m:
+  \[P_{\rm av}=\tfrac12(4\times10^4)^2=0.8\times10^9~\mathrm{W/m}^3,\quad
+    P_{\rm av}^{\mathrm{mm}^3}=0.8~\mathrm{W/mm}^3.\]
+\end{enumerate}
+
+\item[7.28] \textbf{Given phasor:}
+\[\tilde H(y)=(\hat x - j4\hat z)e^{-(2+j9)y}~\mathrm{A/m},\quad f=300~\mathrm{MHz}.\]
+Find instantaneous $E(y,t)$ and $H(y,t)$.  
+\\
+\textbf{Solution:}
+\begin{enumerate}[(a)]
+  \item Instantaneous $H$ from phasor:
+  \[H(y,t)=\Re\{\tilde H\,e^{j\omega t}\}
+    =e^{-2y}[\hat x\cos(\omega t-9y)+4\hat z\sin(\omega t-9y)].\]
+  \item Compute $\tilde E=\eta_c\,\hat k\times\tilde H$, with $\hat k=\hat y$, $\hat y\times(\hat x - j4\hat z)= -\hat z - j4\hat x$:
+  \[\tilde E(y)=\eta_c(-\hat z - j4\hat x)e^{-(2+j9)y}.\]
+  \item Instantaneous $E$:
+  \[E(y,t)=\Re\{\tilde E\,e^{j\omega t}\}
+    =e^{-2y}[-\eta_c\hat z\cos(\omega t-9y)+4\eta_c\hat x\sin(\omega t-9y)].\]
+\end{enumerate}
+
+\item[7.29] \textbf{Copper block, 30 cm thick, frequency 1 kHz.}
+\\
+\textbf{Solution:}
+\begin{enumerate}[(a)]
+  \item Skin depth $\delta_s=1/\sqrt{\pi f\mu_0\sigma}\approx2.1\times10^{-3}$ m.  
+  \item DC resistance uses full area; AC current confined to $\delta_s$ from surface.  Ratio:
+  \[\frac{R_{ac}}{R_{dc}}=\frac{d}{\delta_s}=\frac{0.30}{2.1\times10^{-3}}\approx1.4\times10^2.\]
+\end{enumerate}
+
+\item[7.30] \textbf{Repeat 7.29 at 10 MHz.}
+\\
+\textbf{Solution:}  $\delta_s$ scales $\propto1/\sqrt{f}$:
+\[\delta_s(10~\mathrm{MHz})=\frac{2.1\times10^{-3}}{\sqrt{10^4}}=2.1\times10^{-5}~\mathrm{m},\]
+\[\frac{R_{ac}}{R_{dc}}=\frac{0.30}{2.1\times10^{-5}}\approx1.4\times10^4.\]
+
+\end{enumerate}
+\section*{Problems 7.31--7.35}
+\begin{enumerate}
+
+\item[7.31] \textbf{Coaxial cable at 10 MHz:} Inner radius $a=0.005$ m, outer radius $b=0.01$ m, copper $\sigma=5.8\times10^7$ S/m, outer thickness $t=0.5$ mm.
+\\
+\textbf{Steps:}
+\begin{enumerate}[(a)]
+  \item Skin depth: $\delta_s=1/\sqrt{\pi f\mu_0\sigma}\approx2.1\times10^{-5}$ m, so $5\delta_s=0.105$ mm $\ll a,t$, conductors thick.
+  \item Surface resistance: $R_s=\sqrt{\pi f\mu_0/\sigma}\approx8.25\times10^{-4}$~$\Omega$.
+  \item AC resistance per unit length: $R'=(R_s/2\pi)(1/a+1/b)=(8.25\times10^{-4}/(2\pi))(200+100)\approx3.94\times10^{-2}$~$\Omega$/m.
+\end{enumerate}
+
+\item[7.32] \textbf{Repeat at 1 GHz}: $\delta_s\propto1/\sqrt{f}\approx2.1\times10^{-6}$ m, still $\gg5\delta_s$.
+\\
+$R_s\propto\sqrt{f}\approx8.25\times10^{-3}$~$\Omega$, so $R'\approx3.94\times10^{-1}$~$\Omega$/m.
+
+\item[7.33] \textbf{Plane wave in air:}\ $H=50\sin(2\pi\times10^7t-ky)$ mA/m.  $H_0=0.05$ A/m, $\eta_0=377$ $\Omega$.
+\\
+Average power density:
+\[S_{av}=\tfrac12\eta_0H_0^2=\tfrac12\times377\times0.05^2\approx0.471~\mathrm{W/m^2}.\]
+
+\item[7.34] \textbf{Wave in $\epsilon_r=9$,}\ $E=[3\hat y-2\hat z]\cos(\pi\times10^7t+kx)$ V/m.
+\\
+Propagation in $-x$ (argument $+kx$), $|E|=\sqrt{13}$ V/m, $\eta=377/3\approx125.7$ $\Omega$.  
+Average power:
+\[S_{av}=\tfrac{|E|^2}{2\eta}=\frac{13}{2\times125.7}\approx0.0518~\mathrm{W/m^2},\]
+directed along $-x$.
+
+\item[7.35] \textbf{Wave in water:}\ $\tilde E=5\hat x e^{-(0.2+j0.2)z}$ V/m, $\sigma=4$ S/m.
+\\
+\begin{enumerate}[(a)]
+  \item Average power density:
+  $\tilde H=(1/\eta_c)\hat z\times\tilde E=\hat y(5/\eta_c)e^{-(0.2+j0.2)z}$,
+  \[S_{av}=\tfrac12\Re\{\tilde E\times\tilde H^*\}=\hat z\frac{25}{2|\eta_c|}e^{-0.4z}~\mathrm{W/m^2}.\]
+  \item Attenuation rate: $\alpha=0.2$ Np/m, $A_{dB/m}=8.686\alpha\approx1.737$ dB/m.
+  \item Depth for 40 dB drop: $z=40/1.737\approx23.0$ m.
+\end{enumerate}
+
+\end{enumerate}
+
+\begin{chatbox}
+
+\item[7.36] \textbf{Average power through aperture:}  
+A lossless, non‐magnetic medium has $\varepsilon_r=4$, so its intrinsic impedance is  
+\[
+\eta=\sqrt{\frac{\mu_0}{\varepsilon_0\,\varepsilon_r}}
+=\frac{\eta_0}{2}\approx\frac{377}{2}=188.5\ \Omega.
+\]
+An elliptically polarized plane wave traveling along~$x$ has magnetic‐field amplitudes  
+\[
+H_{y0}=3\ {\rm mA/m},\quad H_{z0}=4\ {\rm mA/m}
+\quad\Longrightarrow\quad
+|\tilde H|=\sqrt{3^2+4^2}\times10^{-3}=5\times10^{-3}\ \mathrm{A/m}.
+\]
+Hence the electric‐field amplitude is  
+\[
+|\tilde E|=\eta\,|\tilde H|=188.5\cdot5\times10^{-3}=0.9425\ \mathrm{V/m},
+\]
+and the average power density is  
+\[
+S_{av}
+=\frac{|\tilde E|\,|\tilde H|}{2}
+=\frac{0.9425\cdot5\times10^{-3}}{2}
+=2.35625\times10^{-3}\ \mathrm{W/m^2}.
+\]
+Through an aperture of area $A=20\ \mathrm{m}^2$, the total power is  
+\[
+P=S_{av}\,A
+=2.35625\times10^{-3}\times20
+\approx0.0471\ \mathrm{W}.
+\]
+
+\item[7.37] \textbf{Phase velocity from $E_0$ and $S_{av}$:}  
+A lossless, non‐magnetic medium has  
+\[
+S_{av}=\frac{|\tilde E|^2}{2\eta},  
+\]
+so its intrinsic impedance is  
+\[
+\eta=\frac{|\tilde E|^2}{2\,S_{av}}
+=\frac{(24.56)^2}{2\cdot2.4}
+\approx125.7\ \Omega.
+\]
+Since $\eta=\sqrt{\mu_0/\varepsilon}$, we have  
+\[
+\varepsilon=\frac{\mu_0}{\eta^2},
+\quad
+u_p=\frac1{\sqrt{\mu_0\varepsilon}}
+=\frac{\eta}{\mu_0}
+\approx\frac{125.7}{4\pi\times10^{-7}}
+\approx1.00\times10^8\ \mathrm{m/s}.
+\]
+
+\item[7.38] \textbf{Unsafe‐zone radius for radar exposure:}  
+Threshold power density $S_{\rm th}=1\ \mathrm{mW/cm^2}=10\ \mathrm{W/m^2}$.  
+For a plane wave in free space,  
+\[
+S=\frac{E^2}{2\eta_0}
+\;\Longrightarrow\;
+E_{\rm th}=\sqrt{2\eta_0\,S_{\rm th}}
+=\sqrt{2\cdot377\cdot10}
+\approx86.85\ \mathrm{V/m}.
+\]
+Given $E(R)=3000/R\,$ (V/m), the unsafe region satisfies  
+\[
+\frac{3000}{R}\ge86.85
+\quad\Longrightarrow\quad
+R\le\frac{3000}{86.85}\approx34.5\ \mathrm{m}.
+\]
+
+\item[7.39] \textbf{Net power flux into box in lossless air:}  
+A plane wave in air has  
+\[
+\mathbf E = \hat x\,E_0\cos(\omega t -k y),\quad
+\mathbf H = -\hat z\,\frac{E_0}{\eta_0}\cos(\omega t -k y).
+\]
+The instantaneous Poynting vector is  
+\[
+\mathbf S
+=\mathbf E\times\mathbf H
+=-\hat y\,\frac{E_0^2}{\eta_0}\cos^2(\omega t -k y).
+\]
+Through the two $y$‐faces ($y=0$ and $y=b$) of area $A=ac$, the net instantaneous power entering is  
+\[
+P(t)
+=\!\iint_{y=0}\!S_y(-\hat y)\,dA \;-\!\!\iint_{y=b}\!S_y(\hat y)\,dA
+=ac\,\frac{E_0^2}{\eta_0}\bigl[\cos^2(\omega t)-\cos^2(\omega t -k b)\bigr].
+\]
+Since $\langle\cos^2\!\rangle=1/2$, the time‐average net power is  
+\[
+\langle P\rangle
+=ac\,\frac{E_0^2}{\eta_0}\Bigl[\tfrac12-\tfrac12\Bigr]
+=0.
+\]
+
+\item[7.40] \textbf{Net time‐average power in a lossy medium:}  
+Fields are  
+\[
+E(y,t)=100\,e^{-20y}\cos(\omega t-40y),\quad
+H(y,t)=-0.64\,e^{-20y}\cos\bigl(\omega t-40y-36.85^\circ\bigr).
+\]
+The average Poynting flux is  
+\[
+S_{av}(y)
+=\tfrac12\Re\{E\,H^*\}
+=\tfrac12\,E_0H_0\,e^{-40y}\cos36.85^\circ
+=25.6\,e^{-40y}\ \mathrm{W/m^2}.
+\]
+With box cross‐section $A=ac=(0.01)(0.005)=5\times10^{-5}\rm\,m^2$, the net average power entering is  
+\[
+\langle P\rangle
+=A\bigl[S_{av}(0)-S_{av}(b)\bigr]
+=5\times10^{-5}\bigl[25.6-25.6\,e^{-40\,(0.02)}\bigr]
+\approx7.05\times10^{-4}\ \mathrm{W}.
+\]
+
+\end{chatbox}
